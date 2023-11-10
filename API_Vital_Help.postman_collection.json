@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "888cb34d-c3d9-434a-b174-b23de5815a86",
+		"name": "API Vital Help",
+		"description": "Métodos para incluir e ajustar vendas no sistema da Vital Help.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28516507"
+	},
+	"item": [
+		{
+			"name": "Cpf - Consultar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A641E179-2DC8-486C-8F3B-C7F43937D8F0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/R50001?cpf=123.184.130-37",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"R50001"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123.184.130-37"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pessoas - Consultar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A641E179-2DC8-486C-8F3B-C7F43937D8F0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/Pessoas/21024212",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"Pessoas",
+						"21024212"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pessoas - Inserir",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "D235EA21-1012-4941-94B2-AC1C4F7E1E42",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo_pessoa\":\"Física\",\r\n    \"nome_completo\":\"GABRIEL COSTA WARKEN TESTE API\",\r\n    \"data_nascimento\":\"1990-06-02\",\r\n    \"documentos\": [\r\n        {\r\n            \"tipo_documento\":\"CPF\",\r\n            \"documento\":\"123.184.130-37\"\r\n        },\r\n        {\r\n            \"tipo_documento\":\"RG\",\r\n            \"documento\":\"8075274831\"\r\n        }\r\n    ],\r\n    \"meios_contato\": [\r\n        {\r\n            \"meio\":\"CELULAR\",\r\n            \"contato\":\"51999999999\",\r\n            \"sequencia\": 1\r\n        }\r\n    ],\r\n    \"sexo\":\"MASCULINO\",\r\n    \"codigo_postal\":\"93548-200\",\r\n    \"endereco\":\"576\",\r\n    \"numero\":\"CAMPO NUMERO\",\r\n    \"complemento\":\"CAMPO COMPLEMENTO\",\r\n    \"bairro\":\"CAMPO BAIRRO\",\r\n    \"cidade\":\"XANGRI-LA / RS\",\r\n    \"uf\":\"RS\",\r\n    \"pais\":\"CAMPO PAIS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/Pessoas/",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"Pessoas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pessoas - Alterar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A641E179-2DC8-486C-8F3B-C7F43937D8F0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero\": \"560\"\r\n}"
+				},
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/Pessoas/21024212",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"Pessoas",
+						"21024212"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contratos - Prod Individual",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A641E179-2DC8-486C-8F3B-C7F43937D8F0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contratante_id\": 21024212,\r\n    \"data_inicio_faturamento\": \"2023-10-25\",\r\n    \"plano_pagamento\": \"API\",\r\n    \"dia_vencimento\": 25,\r\n    \"frequencia\": \"Mensal\",\r\n    \"data_vencimento\": \"2024-10-25\",\r\n    \"vigencia\": 1,\r\n    \"observacoes_contrato\": \"\",\r\n    \"produto\": \"58977\",\r\n    \"parceiro\": 2143943,\r\n    \"agente_venda_id\": 923956892,\r\n    \"usuarios\": [\r\n        {\r\n            \"pessoa_id\": 21024212,\r\n            \"data_inicio\": \"2023-10-25\",\r\n            \"data_termino\": \"\",\r\n            \"observacoes\": \"\",\r\n            \"tipo_vinculo\": \"TITULAR\",\r\n            \"beneficiario\": \"N\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/ContratosUsuarios/",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"ContratosUsuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contratos - Prod Familiar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A641E179-2DC8-486C-8F3B-C7F43937D8F0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contratante_id\": 856004658,\r\n    \"data_inicio_faturamento\": \"2023-10-25\",\r\n    \"plano_pagamento\": \"API\",\r\n    \"dia_vencimento\": 25,\r\n    \"frequencia\": \"Mensal\",\r\n    \"data_vencimento\": \"2024-10-25\",\r\n    \"vigencia\": 1,\r\n    \"observacoes_contrato\": \"\",\r\n    \"produto\": \"58978\",\r\n    \"parceiro\": 2143943,\r\n    \"agente_venda_id\": 923956892,\r\n    \"usuarios\": [\r\n        {\r\n            \"pessoa_id\": 21024212,\r\n            \"data_inicio\": \"2023-10-24\",\r\n            \"data_termino\": \"\",\r\n            \"observacoes\": \"\",\r\n            \"tipo_vinculo\": \"TITULAR\",\r\n            \"beneficiario\": \"N\"\r\n        },\r\n        {\r\n            \"pessoa_id\": 856004658,\r\n            \"data_inicio\": \"2023-10-25\",\r\n            \"data_termino\": \"\",\r\n            \"observacoes\": \"\",\r\n            \"tipo_vinculo\": \"DEPENDENTE\",\r\n            \"beneficiario\": \"N\"\r\n        },\r\n        {\r\n            \"pessoa_id\": 57054,\r\n            \"data_inicio\": \"2023-10-25\",\r\n            \"data_termino\": \"\",\r\n            \"observacoes\": \"\",\r\n            \"tipo_vinculo\": \"DEPENDENTE\",\r\n            \"beneficiario\": \"N\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/ContratosUsuarios/",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"ContratosUsuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contratos Conv - Incluir Dependentes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "D235EA21-1012-4941-94B2-AC1C4F7E1E42",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pessoa\": \"67525214\",\r\n    \"nome_completo\": \"GABRIEL COSTA WARKEN\",\r\n    \"nome_embossing\": \"GABRIEL C WARKEN\",\r\n    \"data_inicio\": \"2023-11-06\",\r\n    \"tipo_vinculo\": \"DEPENDENTE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/ContratoUsuariosDependentes?P_CONTRATO_ID=926026658",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"ContratoUsuariosDependentes"
+					],
+					"query": [
+						{
+							"key": "P_CONTRATO_ID",
+							"value": "926026658"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contratos - Cancelar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A641E179-2DC8-486C-8F3B-C7F43937D8F0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data_cancelamento\":\"2023-10-25\",\r\n  \"motivo_cancelamento_contrato_id\":\"2354831\",\r\n  \"motivo_cancelamento\":\"Cancelamento via API\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://erp.vitalhelp.com.br/VITAL/api/ContratosUsuarios/924109677/cancelar",
+					"protocol": "https",
+					"host": [
+						"erp",
+						"vitalhelp",
+						"com",
+						"br"
+					],
+					"path": [
+						"VITAL",
+						"api",
+						"ContratosUsuarios",
+						"924109677",
+						"cancelar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
